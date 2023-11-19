@@ -19,6 +19,7 @@ new class extends Component {
     public function getChirps(): void
     {
         $this->chirps = Chirp::with('user')
+            ->where('user_id', auth()->id()) // Filter chirps by the authorized user's id
             ->latest()
             ->get();
     }
