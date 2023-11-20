@@ -19,8 +19,10 @@ new class extends Component {
     }
 }; ?>
 
-<div> 
-    {{$user->name}}
-    {{$user->email}}
-    {{$user->id}}
+<div class="bg-white dark:bg-gray-800 shadow-md rounded-lg p-6">
+    <h2 class="text-2xl font-bold dark:text-white">{{ $user->name }}</h2>
+    <p class="text-gray-600 dark:text-gray-400">Email: {{ $user->email }}</p>
+    <p class="text-gray-600 dark:text-gray-400">User ID: {{ $user->id }}</p>
 </div>
+
+

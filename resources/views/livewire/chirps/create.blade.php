@@ -25,8 +25,8 @@ new class extends Component {
 <div class="flex justify-center">
     <form wire:submit="store" class="flex flex-col items-end justify-center">
         <textarea wire:model="message" placeholder="{{ __('What\'s on your mind?') }}"
-            class="block w-96 border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm"></textarea>
+            class="block lg:w-96 border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm dark:bg-gray-800 dark:text-white"></textarea>
         <x-input-error :messages="$errors->get('message')" class="mt-2" />
-        <x-primary-button class="mt-4">{{ __('Chirp') }}</x-primary-button>
+        <x-primary-button class="mt-4 dark:bg-gray-800 dark:text-white">{{ __('Chirp') }}</x-primary-button>
     </form>
 </div>
