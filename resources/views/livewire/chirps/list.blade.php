@@ -59,7 +59,7 @@ new class extends Component {
             <div class="flex-1">
                 <div class="flex justify-between items-center">
                     <div>
-                        <span class="text-gray-800">{{ $chirp->user->name }}</span>
+                        <a href="{{ route('user', ['id' => $chirp->user->id]) }}" class="text-gray-800">{{ $chirp->user->name }}</a>
                         <small class="ml-2 text-sm text-gray-600">{{ $chirp->created_at->format('j M Y, g:i a') }}
                         </small>
                         @unless ($chirp->created_at->eq($chirp->updated_at))

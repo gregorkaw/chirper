@@ -4,6 +4,7 @@ use App\Models\Chirp;
 use Illuminate\Database\Eloquent\Collection;
 use Livewire\Attributes\On;
 use Livewire\Volt\Component;
+use Illuminate\Support\Facades\Route;
 
 new class extends Component {
     public Collection $chirps;
@@ -18,11 +19,21 @@ new class extends Component {
     #[On('chirp-created')]
     public function getChirps(): void
     {
+        $userId = null;
+        $routeName = Route::currentRouteName();
+
+        if ($routeName === 'dashboard') {
+            $userId = auth()->user()->id; // Get the authenticated user ID
+        } elseif ($routeName === 'user') {
+            $userId = Route::current()->parameter('id'); // Get the user ID from the URL parameter
+        }
+
         $this->chirps = Chirp::with('user')
-            ->where('user_id', auth()->id()) // Filter chirps by the authorized user's id
+            ->where('user_id', $userId) // Filter chirps by the user ID
             ->latest()
             ->get();
     }
+    
     #[On('chirp-updated')]
     #[On('chirp-edit-cancelled')]
     public function disableEditing(): void

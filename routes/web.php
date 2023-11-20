@@ -20,6 +20,12 @@ Route::get('chirps', [ChirpController::class, 'index'])
     ->middleware(['auth', 'verified'])
     ->name('chirps');
 
+Route::get('user/{id}', function ($id) {
+    return view('profilepage');
+})
+->middleware(['auth', 'verified'])
+->name('user');
+
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
     ->name('dashboard');

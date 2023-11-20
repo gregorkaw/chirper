@@ -29,7 +29,11 @@
 
             <!-- Page Content -->
             <main>
-                {{ $slot }}
+                <div class="flex min-h-screen">
+                    <div class="w-[25%]"><livewire:layout.sidebar /></div>
+                    {{ $slot }}
+                </div>
+                
             </main>
         </div>
     </body>

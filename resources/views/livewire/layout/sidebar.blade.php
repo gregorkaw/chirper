@@ -6,16 +6,12 @@ use Livewire\Volt\Component;
 new class extends Component {
     public User $user;
 
-    /**
-     * Mount the component.
-     */
     public function mount(): void
     {
-        $this->user = Auth::user();
+        $this->user = auth()->user();
     }
 }; ?>
 
-<div>
-    <p>{{$user->name}}</p>
-    <p>{{$user->email}}</p>
+<div class="bg-gray-200 min-h-screen py-12 px-4">
+    <p>{{$this->user->name}}</p>
 </div>
