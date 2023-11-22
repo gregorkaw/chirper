@@ -26,7 +26,6 @@ Route::get('user/{id}', function ($id) {
 ->middleware(['auth', 'verified'])
 ->name('user');
 
-
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
     ->name('dashboard');
